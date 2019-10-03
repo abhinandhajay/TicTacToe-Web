@@ -1,0 +1,46 @@
+body {
+    background-color: #232323;
+    margin: 0;
+    font-family: "Montserrat", "Avenir";
+    color: white;
+}
+h1 {
+    text-align: center;
+
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+    background: #0f90e6;
+    display: flex;
+    list-style: none;
+    /* justify-content: center; */
+    justify-content: space-evenly
+}
+nav li {
+    direction: ltr;
+    padding: 10px 20px;
+}
+nav li:hover {
+    background: #23a7ff;
+    cursor: pointer;
+}
+nav a {
+    text-decoration: none;
+    color: white;
+}
+.square {
+    width: 30%;
+    background: white;
+    padding-bottom: 30%;
+    float: left;
+    margin: 1.66%;
+    transition: background 0.6s;
+    -webkit-transition: background 0.6s;
+    -moz-transition: background 0.6s;
+}
+
+#container {
+    margin: 40px auto;
+    max-width: 500px;
+}
