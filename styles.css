@@ -5,31 +5,38 @@ body {
     color: white;
 }
 h1 {
+    margin: 0;
+    padding: 30px 0;
     text-align: center;
-
+    background: #df3535;
+    height: 100%;
 }
 nav ul {
     margin: 0;
     padding: 0;
-    background: #0f90e6;
+    /* background: #0f90e6; */
+    background: #383838;
     display: flex;
     list-style: none;
-    /* justify-content: center; */
     justify-content: space-evenly
 }
 nav li {
     direction: ltr;
     padding: 10px 20px;
 }
-nav li:hover {
-    background: #23a7ff;
-    cursor: pointer;
-}
 nav a {
     text-decoration: none;
     color: white;
 }
-
+nav #new:hover {
+    background: #444444;
+}
+nav .player1{
+    background: #df3535;
+}
+nav .player2 {
+    background: #39da6f;
+}
 #container {
     margin: 75px auto;
     max-width: 500px;
@@ -66,7 +73,7 @@ nav a {
     -moz-transition: background 0.6s;
 }
 
-div i {
+div .fa-times {
     color: white;
     width: 100%;
     text-align: center;
