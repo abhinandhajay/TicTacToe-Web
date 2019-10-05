@@ -12,6 +12,7 @@ var nine = document.querySelector("#nine");
 var turn = 1;
 var end = 0;
 
+// COLOR WINNING BLOCKS AND DISPLAY WINNER 
 function winner(b1, b2, b3) {
     if (b1.classList.contains("squareX")) {
         end = 1;
@@ -19,17 +20,19 @@ function winner(b1, b2, b3) {
         b2.classList.add("winBlue");
         b3.classList.add("winBlue");
         h1.style.backgroundColor = "#df3535";
-        h1.innerHTML = "Player 1 Wins";
+        h1.innerHTML = "Player 1 Wins!";
     } else if (b1.classList.contains("squareO")) {
         end = 1;
         b1.classList.add("winBlue");
         b2.classList.add("winBlue");
         b3.classList.add("winBlue");
         h1.style.backgroundColor = "#39da6f";
-        h1.innerHTML = "Player 2 Wins";
+        h1.innerHTML = "Player 2 Wins!";
     }
 }
 
+
+// CHECK WIN CONDITIONS 
 function checker() {
 
     // ROW WIN CHECK 
@@ -61,11 +64,21 @@ function checker() {
     if ((three.className == five.className) && (three.className == seven.className)) {
         winner(three, five, seven);
     }
+
+    if (turn > 9) {
+        h1.innerHTML = "It's a draw!";
+        h1.style.backgroundColor = "#1164ff";
+    }
 }
+
+
 for (var i = 0; i < squares.length; i++) {
+
+    // PLACING X OR O 
     squares[i].addEventListener("click", function () {
         if (this.classList.contains("square") && end == 0) {
-            if (turn % 2 === 1) {
+            this.classList.remove("hovering");
+            if (turn % 2 == 1) {
                 this.classList.add("squareX");
                 this.classList.remove("square");
                 this.innerHTML = "<i class='fas fa-times'></i>";
@@ -79,6 +92,32 @@ for (var i = 0; i < squares.length; i++) {
                 turn++;
             }
             checker();
+        }
+    });
+
+    // LET USER KNOW WHAT THEY'RE PLACING WHERE
+    squares[i].addEventListener("mouseenter", function () {
+        if (this.classList.contains("square") && end == 0) {
+            this.classList.add("hovering");
+            if (turn % 2 == 1) {
+                this.classList.add("squareX");
+                this.innerHTML = "<i class='fas fa-times'></i>";
+            } else {
+                this.classList.add("squareO");
+                this.innerHTML = "<i class='fas fa-circle'></i>";
+            }
+        }
+    });
+    squares[i].addEventListener("mouseleave", function () {
+        if (this.classList.contains("square") && end == 0) {
+            this.classList.remove("hovering");
+            if (turn % 2 == 1) {
+                this.classList.remove("squareX");
+                this.innerHTML = "";
+            } else {
+                this.classList.remove("squareO");
+                this.innerHTML = "";
+            }
         }
     });
 }
