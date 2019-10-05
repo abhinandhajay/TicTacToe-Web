@@ -13,6 +13,8 @@ var turn = 1;
 var end = 0;
 
 function checker() {
+
+    // ROW WIN CHECK 
     if ((one.className == two.className) && (one.className == three.className)) {
         if (one.className == "squareX") {
             end = 1;
@@ -46,8 +48,66 @@ function checker() {
             return "2";
         }
     }
-}
 
+    // COLUMN WIN CHECK 
+    if ((one.className == four.className) && (one.className == seven.className)) {
+        if(one.className == "squareX") {
+            end = 1;
+            alert("Player 1");
+            return "1";
+        } else if (one.className == "squareO") {
+            end = 1;
+            alert("Player 2");
+            return "2";
+        } 
+    }
+    if ((two.className == five.className) && (two.className == eight.className)) {
+        if(two.className == "squareX") {
+            end = 1;
+            alert("Player 1");
+            return "1";
+        } else if (two.className == "squareO") {
+            end = 1;
+            alert("Player 2");
+            return "2";
+        } 
+    }
+    if ((three.className == six.className) && (three.className == nine.className)) {
+        if(three.className == "squareX") {
+            end = 1;
+            alert("Player 1");
+            return "1";
+        } else if (three.className == "squareO") {
+            end = 1;
+            alert("Player 2");
+            return "2";
+        } 
+    }
+
+    // DIAGONAL WIN CHECK 
+    if ((one.className == five.className) && (one.className == nine.className)) {
+        if(one.className == "squareX") {
+            end=1;
+            alert("Player 1");
+            return "1";
+        } else if (one.className == "squareO") {
+            end = 1;
+            alert("Player 2");
+            return "2";
+        }
+    }
+    if ((three.className == five.className) && (three.className == seven.className)) {
+        if(three.className == "squareX") {
+            end=1;
+            alert("Player 1");
+            return "1";
+        } else if (three.className == "squareO") {
+            end = 1;
+            alert("Player 2");
+            return "2";
+        }
+    }
+}
 for (var i = 0; i < squares.length; i++) {
     squares[i].addEventListener("click", function () {
         if (this.classList.contains("square") && end == 0) {
