@@ -12,100 +12,54 @@ var nine = document.querySelector("#nine");
 var turn = 1;
 var end = 0;
 
+function winner(b1, b2, b3) {
+    if (b1.classList.contains("squareX")) {
+        end = 1;
+        b1.classList.add("winBlue");
+        b2.classList.add("winBlue");
+        b3.classList.add("winBlue");
+        h1.style.backgroundColor = "#df3535";
+        h1.innerHTML = "Player 1 Wins";
+    } else if (b1.classList.contains("squareO")) {
+        end = 1;
+        b1.classList.add("winBlue");
+        b2.classList.add("winBlue");
+        b3.classList.add("winBlue");
+        h1.style.backgroundColor = "#39da6f";
+        h1.innerHTML = "Player 2 Wins";
+    }
+}
+
 function checker() {
 
     // ROW WIN CHECK 
     if ((one.className == two.className) && (one.className == three.className)) {
-        if (one.className == "squareX") {
-            end = 1;
-            alert("Player 1");
-            return "1";
-        } else if (one.className == "squareO") {
-            end = 1;
-            alert("Player 2");
-            return "2";
-        }
+        winner(one, two, three);
     }
     if ((four.className == five.className) && (four.className == six.className)) {
-        if (four.className == "squareX") {
-            end = 1;
-            alert("Player 1");
-            return "1";
-        } else if (four.className == "squareO") {
-            end = 1;
-            alert("Player 2");
-            return "2";
-        }
+        winner(four, five, six);
     }
     if ((seven.className == eight.className) && (seven.className == nine.className)) {
-        if (seven.className == "squareX") {
-            end = 1;
-            alert("Player 1");
-            return "1";
-        } else if (seven.className == "squareO") {
-            end = 1;
-            alert("Player 2");
-            return "2";
-        }
+        winner(seven, eight, nine);
     }
 
     // COLUMN WIN CHECK 
     if ((one.className == four.className) && (one.className == seven.className)) {
-        if(one.className == "squareX") {
-            end = 1;
-            alert("Player 1");
-            return "1";
-        } else if (one.className == "squareO") {
-            end = 1;
-            alert("Player 2");
-            return "2";
-        } 
+        winner(one, four, seven);
     }
     if ((two.className == five.className) && (two.className == eight.className)) {
-        if(two.className == "squareX") {
-            end = 1;
-            alert("Player 1");
-            return "1";
-        } else if (two.className == "squareO") {
-            end = 1;
-            alert("Player 2");
-            return "2";
-        } 
+        winner(two, five, eight);
     }
     if ((three.className == six.className) && (three.className == nine.className)) {
-        if(three.className == "squareX") {
-            end = 1;
-            alert("Player 1");
-            return "1";
-        } else if (three.className == "squareO") {
-            end = 1;
-            alert("Player 2");
-            return "2";
-        } 
+        winner(three, six, nine);
     }
 
     // DIAGONAL WIN CHECK 
     if ((one.className == five.className) && (one.className == nine.className)) {
-        if(one.className == "squareX") {
-            end=1;
-            alert("Player 1");
-            return "1";
-        } else if (one.className == "squareO") {
-            end = 1;
-            alert("Player 2");
-            return "2";
-        }
+        winner(one, five, nine);
     }
     if ((three.className == five.className) && (three.className == seven.className)) {
-        if(three.className == "squareX") {
-            end=1;
-            alert("Player 1");
-            return "1";
-        } else if (three.className == "squareO") {
-            end = 1;
-            alert("Player 2");
-            return "2";
-        }
+        winner(three, five, seven);
     }
 }
 for (var i = 0; i < squares.length; i++) {
@@ -120,7 +74,7 @@ for (var i = 0; i < squares.length; i++) {
             } else {
                 this.classList.add("squareO");
                 this.classList.remove("square");
-                this.innerHTML = "<i class='far fa-circle'></i>";
+                this.innerHTML = "<i class='fas fa-circle'></i>";
                 h1.style.background = "#df3535";
                 turn++;
             }
