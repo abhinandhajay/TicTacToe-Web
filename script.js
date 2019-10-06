@@ -65,7 +65,7 @@ function checker() {
         winner(three, five, seven);
     }
 
-    if (turn > 9) {
+    if (turn > 9 && end != 1) {
         h1.innerHTML = "It's a draw!";
         h1.style.backgroundColor = "#1164ff";
     }

@@ -110,3 +110,27 @@ div .fa-circle {
     font-size: 120px;
     padding: 15px 0;
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+
+    #container {
+        margin: 60px auto;
+        max-width: 320px;
+    }
+
+    div .fa-times {
+        color: white;
+        width: 100%;
+        text-align: center;
+        font-size: 96px;
+    }
+
+    div .fa-circle {
+        color: white;
+        width: 100%;
+        text-align: center;
+        font-size: 66px;
+        padding: auto 0;
+    }
+
+}
